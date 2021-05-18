@@ -1,0 +1,941 @@
+/* start global rules */
+html{
+    font-size: 15px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', tahoma;
+}
+i, button{
+    cursor: pointer;
+}
+body{
+    overflow-x: hidden;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+}
+/* start vars */
+:root{
+    --main_color: #18181d;
+    --main_hover: #2a2a31b7;
+    --white: #fff;
+    --white_hover: #eee;
+}
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$xlarge: 1200px;
+/* end vars */
+
+.container{
+    width: 90%;
+    margin: 0 auto;
+    @media (max-width: var($small)) {
+        width: 95%;
+    }
+}
+/* start components */
+    @mixin t ($time:0.3s , $way: ease){
+        transition: $time $way;
+        -moz-transition: $time $way;
+        -o-transition: $time $way;
+        -ms-transition: $time $way;
+        -webkit-transition: $time $way;
+    }
+    @mixin button($color: var(--white) , $padding: 15px 30px , $textColor: var(--main_color) ) {
+        background: $color;
+        padding: $padding;
+        color: $textColor;
+        border: none;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &::after{
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f30b";
+            // content: "";
+            width: 20px;
+            height: 9px;
+            // background: url(https://assets.website-files.com/5d9c8fcaca1c6c013b521b95/5d9c8fcaca1c6c5e36521bc5_arrow-dark%402x.svg);
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-left: 10px;
+            left: 0%;
+            @include t(.3s);
+            font-size: 1.5rem;
+        }
+        &:hover:after {
+            left: 7%;
+        }
+    }
+    @mixin image($url , $width: 0 , $height: 0){
+        background-image: $url;
+        width: $width;
+        height: $height;
+        background-size: cover;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        padding: 0 10px 10px;
+        background-position: center;
+        &:hover{
+            button{
+                opacity: 1;
+                transform: translateY(0px);
+            }
+            .overlay{
+                opacity: .3;
+            }
+        }
+        button{
+            @include button($padding: 25px 30px);
+            opacity: 0;
+            transform: translateY(5px);
+            width: 100%;
+            @include t(.3s);
+            margin: 0px;
+        }
+        .overlay{
+            width: 100%;
+            height: 100%;
+            background: var(--main_color);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            opacity: 0;
+            @include t(.3s);
+        }
+    }
+    @mixin sale($bgColor: var(--main_color) , $color: var(--white) , $xP: 0 , $yP: 0) {
+        position: relative;
+        div.note{
+            text-transform: uppercase;
+            padding: 15px 20px;
+            background: $bgColor;
+            color: $color;
+            position: absolute;
+            top: $yP;
+            left: $xP;
+            z-index: 100;
+        }
+    }
+    @mixin whiteSale() {
+        @include sale(var(--white) , var(--main_color));
+    }
+    @mixin overlay {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        @include t();
+        .overlay{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white_hover);
+            opacity: 0;
+        }
+        &:hover{
+            opacity: 0.7;
+        }
+        .note{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: var(--white);
+            color: var(--main_color);
+            padding: 10px 15px;
+        }
+    }
+/* end components */
+
+/* end global rules */
+
+/* start nav */
+nav{
+    position: sticky;
+    top: 0px;
+    border-bottom: 1px solid var(--main_color);
+    background: var(--white);
+    z-index: 1000;
+    .container{
+        height: 70px;
+        grid-template-columns: 4fr 30fr 2fr;
+        align-items: center;
+        display: grid;
+        gap: 20px;
+        .logo{
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--main_color);
+            @include t();
+            &:hover{
+                color: var(--main_hover);
+            }
+        }
+        ul{
+            background: var(--white);
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+            gap: 20px;
+            li{
+                a{
+                    font-weight: 600;
+                    font-size: .8rem;
+                    text-transform: uppercase;
+                    font-family: 'Nunito' , tahoma;
+                    color: var(--main_color);
+                    text-decoration: none;
+                    font-style: normal !important;
+                    @include t(.5s);
+                    &:hover{
+                        color: var(--main_hover);
+                    }
+                }
+            }
+        }
+        .icons{
+            font-size: 1.5rem;
+            display: flex;
+            gap: 20px;
+            color: var(--main_color);
+            align-items: center;
+            #bars{
+                display: none;
+            }
+            i{
+                cursor: pointer;
+                @include t();
+                &:hover{
+                    color: var(--main_hover)
+                }
+            }
+        }
+    }
+}
+/* end nav */
+@media (max-width: $large) {
+    nav{
+        .container{
+            display: flex;
+            justify-content: space-between;
+            ul{
+                position: absolute;
+                top: -620%;
+                left: 0px;
+                width: 100%;
+                gap: 0px;
+                justify-content: flex-start;
+                align-items: stretch;
+                flex-direction: column;
+                @include t(.5s , ease-in-out);
+                :not(:last-child){
+                    border-bottom: 1px solid var(--main_color);
+                }
+                li{
+                    // color: var();
+                    padding-left: 30px;
+                    @include t(.3s);
+                    padding: 20px;
+                    &:hover{
+                        padding-left: 40px;
+                    }
+                }
+            }
+            .activeNav{
+                top: 70px;
+            }
+            .icons{
+                display: flex;
+                #bars{
+                    display: block;
+                }
+            }
+        }
+    }
+}
+/* end nav */
+
+/* start header */
+#head{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background: url(images/main-bg.jpg);
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-position: center;
+    background-size: cover;
+    button{
+        @include button( var(--white) , 20px 40px);
+    }
+    h1{
+        margin: 0 20% 30px;
+        font-weight: 300;
+        color: var(--white);
+        text-align: center;
+        font-size: 4rem;
+    }
+}
+@media (max-width: $large) {
+    #head{
+        h1{
+            margin: 0 10% 30px;
+            font-size: 3rem;
+        }
+        button{
+            width: 60%;
+        }
+    }
+}
+@media (max-width: $medium) {
+    #head{
+        h1{
+            margin: 0 0% 30px;
+            font-size: 3rem;
+        }
+    }
+}
+@media (max-width: $medium) {
+    #head{
+        h1{
+            margin: 0 0% 30px;
+            font-size: 2.5rem;
+        }
+        button{
+            width: 90%;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: .9rem;
+            width: 95%;
+        }
+    }
+}
+/* end header */
+
+/* start aside */
+aside{
+    display: none;
+    position: fixed;
+    z-index: 1000000000000;
+    top: 0;
+    opacity: 0;
+    right: -400px;
+    width: 400px;
+    @include t();
+    @media (max-width: 400px) {
+        max-width: 100%;
+    }
+    background: var(--main_color);
+    height: 100vh;
+    color: var(--white);
+    text-transform: uppercase;
+    header{
+        width: 100%;
+        height: 10%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10%;
+        align-items: center;
+    }
+    section{
+        text-align: center;
+        background: var(--main_hover);
+        padding: 1rem 1rem 2rem;
+        button{
+            width: 100%;
+            margin: 1rem auto 0;
+            @include button();
+        }
+    }
+}
+.activeAside{
+    opacity: 1;
+    right: 0;
+}
+/* end aside */
+
+/* start section brands */
+section#brands{
+    .container{
+        padding: 50px 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 103px;
+            height: 103px;
+            opacity: .3;
+            margin: 0 auto;
+        }
+    }
+}
+/* end section brands */
+
+/* start section lights */
+section#lights{
+    color: var(--main_color);
+    .container{
+        .h2{
+            width: 100%;
+            h2{
+                width: 30%;
+                font-size: 2rem;
+                font-weight: 200;
+                margin-bottom: 2rem;
+            }
+        }
+        .imgs{
+            display: flex;
+            gap: 40px;
+            .img1{
+                @include image(url(images/bola-disc-.jpg) , 80% , 800px)
+            }
+            .img2{
+                @include image(url(images/bola-halo.jpg) , 80% , 600px)
+            }
+        }
+        .text{
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(2 , 1fr);
+            .h3{
+                width: 50%;
+                h3{
+                    font-weight: 300;
+                    font-size: 1.7rem;
+                }
+            }
+            p{
+                font-weight: 500;
+                font-size: 1.1rem;
+                line-height: 25px;
+                opacity: .5;
+                font-family: tahoma;
+                width: 80%;
+                margin-bottom: 3rem;
+            }
+            button{
+                grid-column: 2/3;
+                @include button($padding: 30px 0px);
+                border: 1px solid var(--main_color);
+                justify-content: space-around;
+                &:hover{
+                    border: 1px solid var(--main_hover);
+                }
+            }
+        }
+    }
+}
+@media (max-width: $large) {
+    section#lights{
+        .container{
+            .h2 h2{
+                width: 100%;
+                text-align: center;
+            }
+            .imgs{
+                flex-direction: column;
+                .img1{
+                    @include image(url(images/bola-disc-.jpg) , 100% , 700px)
+                }
+                .img2{
+                    @include image(url(images/bola-halo.jpg) , 80% , 500px)
+                }
+            }
+            .text{
+                flex-direction: column;
+                .h3{
+                    width: 100%;
+                }
+                p{
+                    width: 100%;
+                }
+                button{
+                    grid-column: 1/3;
+                }
+            }
+    }
+}
+}
+@media (max-width: $medium) {
+    section#lights{
+        .container{
+            .h2 h2{
+                font-size: 1.5rem;
+            }
+            .imgs{
+                .img1{
+                    @include image(url(images/bola-disc-.jpg) , 100% , 500px)
+                }
+                .img2{
+                    @include image(url(images/bola-halo.jpg) , 100% , 300px)
+                }
+            }
+            .text{
+                gap: 40px;
+                .h3{
+                    width: 100%;
+                    grid-column: 1/3;
+                }
+                p{
+                    width: 100%;
+                    grid-column: 1/3;
+                    margin: 0;
+                }
+                button{
+                    grid-column: 1/3;
+                }
+            }
+    }
+}
+}
+@media (max-width: $small) {
+    section#lights{
+        .container{
+            .imgs{
+                .img1{
+                    @include image(url(images/bola-disc-.jpg) , 100% , 300px)
+                }
+            }
+        }
+    }
+}
+/* end section lights */
+
+/* start section products */
+    section#products{
+        color: var(--main_color);
+        padding: 50px 0;
+        .container{
+            header {
+                h6{
+                    font-family: 'Roboto', Tahoma;
+                    font-size: 1rem;
+                    font-weight: 400;
+                    opacity: .7;
+                    margin-bottom: 1rem;
+                }
+                h3{
+                    font-size: 2rem;
+                    font-family: 'Roboto', Tahoma;
+                    font-weight: 300;
+                    margin-bottom: 3rem;
+                }
+            }
+            .products-images{
+                display: grid;
+                gap: 20px;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                @media (max-width: 330px) {
+                    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                }
+                .product{
+                    .img{
+                        .picture{
+                            width: 100%;
+                        }
+                    }
+                    .text{
+                        text-transform: uppercase;
+                        font-family: "Roboto" , tahoma;
+                        color: var(--main_color);
+                        &:hover{
+                            color: var(--main_hover);
+                        }
+                        a , code{
+                            text-decoration: none;
+                            display: block;
+                            margin-top: 2rem;
+                            color: var(--main_color);
+                            &:hover{
+                                color: var(--main_hover);
+                            }
+                        }
+                        code{
+                            font-size: 1.5rem;
+                            &::before{
+                                content: "$";
+                                margin-right: 5px;
+                            }
+                            &::after{
+                                content: "USD";
+                                margin-left: 5px;
+                            }
+                        }
+                    }
+                }
+                .img1{
+                    @include image(url(images/products/first.jpeg) , 100% , 400px)
+                }
+                .img2{
+                    @include image(url(images/products/second.jpeg) , 100% , 400px)
+                }
+                .img3{
+                    @include image(url(images/products/third.jpeg) , 100% , 400px);
+                    @include whiteSale();
+                }
+                .img4{
+                    @include image(url(images/products/fourth.jpeg) , 100% , 400px)
+                }
+                .img5{
+                    @include sale();
+                    @include image(url(images/products/fifth.jpg) , 100% , 400px)
+                }
+                .img6{
+                    @include image(url(images/products/sixth.jpg) , 100% , 400px)
+                }
+                .img7{
+                    @include image(url(images/products/seventh.jpg) , 100% , 400px)
+                }
+                .img8{
+                    @include image(url(images/products/eighth.jpg) , 100% , 400px)
+                }
+                .img9{
+                    @include sale();
+                    @include image(url(images/products/fifth.jpg) , 100% , 400px)
+                }
+                .img10{
+                    @include image(url(images/products/first.jpeg) , 100% , 400px)
+                }
+                .img11{
+                    @include image(url(images/products/seventh.jpg) , 100% , 400px)
+                }
+                .img12{
+                    @include whiteSale();
+                    @include image(url(images/products/third.jpeg) , 100% , 400px)
+                }
+            }
+        }
+        button{
+            @include button( var(--main_color) , $textColor:var(--white) , $padding: 20px 60px);
+            margin: 3rem auto;
+            border: 1px solid var(--white);
+            @media (max-width: $small) {
+                @include button($padding: 20px 40px);
+                border: 1px solid var(--white);
+            }
+        }
+    }
+/* end section products */
+
+/* start section attachementBG  */
+section#attachementBG{
+    margin: 50px 0;
+    background: url(images/attachementBG.jpg) center;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 360px;
+}
+/* end section attachementBG */
+
+/* start section what-they-say */
+section#what{
+    color: var(--main_color);
+    background: var(--white_hover);
+    padding: 50px 0px;
+    width: 90%;
+    .container{
+        margin-right: 0px;
+        display: flex;
+        align-items: center;
+        .left{
+            width: 50%;
+            z-index: 1;
+            div{
+                text-transform: uppercase;
+                background: var(--white);
+                width: max-content;
+                padding: 10px 20px;
+                border: var(--main_hover) solid 1px;
+                border-radius: 3px;
+                font-family: "Roboto" , tahoma;
+                margin-bottom: 2rem
+            }
+            q{
+                font-size: 2.5rem;
+                font-weight: 200;
+            }
+            button{
+                @include button(var(--main_color) , 20px 60px , var(--white));
+                margin-top: 2rem;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        .right{
+            position: relative;
+            z-index: 0;
+            right: 10%;
+            background: url(images/solis_fabric.jpg);
+            width: 60%;
+            height: 580px;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+}
+@media (max-width: $large) {
+    section#what{
+        width: 100%;
+        .container{
+            // background: red;
+            margin: 0 auto;
+            flex-direction: column-reverse;
+            .right{
+                width: 100%;
+                position: static;
+                @media (max-width: $medium) {
+                    height: 400px;
+                }
+            }
+            .left{
+                margin-top:2rem;
+                // background: blue;
+                width: 100%;
+                q{
+                    @media (max-width: $medium) {
+                        text-align: center;
+                        font-size: 2rem;
+                        width: 100%;
+                    }
+                }
+                button{
+                    margin: 2rem auto 0;
+                    padding: 30px 60px;
+                    @media (max-width: $medium) {
+                        padding: 15px 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+/* end section what-they-say */
+
+/* star section our articles
+section#our{
+    margin: 50px 0px;
+    color: var(--main_color);
+    .container{
+        header{
+            margin-bottom: 3rem;
+            h6{
+                font-family: "Roboto", Tahoma;
+                font-weight: 400;
+                font-size: 1rem;
+                opacity: 0.7;
+            }
+            h3{
+                font-weight: 400;
+                width: 50%;
+                @media (max-width: $large) {
+                    width: 100%;
+                    text-align: center;
+                }
+                font-size: 2rem;
+            }
+        }
+        .articles{
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            @media (max-width: $large) {
+                grid-template-columns: repeat(2 , 1fr);
+            }
+            @media (max-width: $medium) {
+                grid-template-columns: repeat(1 , 1fr);
+            }
+            height: 400px;
+            gap: 30px;
+            .article{
+                .pic{
+                    .img1{
+                        background: url(images/bola-bedroom.jpg);
+                    }
+                    .img2{
+                        background: url(images/bola-office.jpg);
+                    }
+                    .img3{
+                        background: url(images/lana-mini-livingroom.jpg);
+                    }
+                    .img{
+                        @include overlay();
+                        height: 400px;
+                    }
+                }
+                .text{
+                    h3{
+                        margin-top: 1rem;
+                        a{
+                            color: var(--main_color);
+                            &:hover{
+                                color: var(--main_hover);
+                            }
+                            text-decoration: none;
+                        }
+                    }
+                    > a{
+                        text-decoration: none;
+                        @include button();
+                        width: max-content;
+                        padding: 0px;
+                        margin-top: 1rem;
+                    }
+                }
+            }
+            @media (max-width: $large) {
+                .article1{
+                    grid-column: 1/3;
+                }
+                .article2{
+                    grid-column: 1/2;
+                }
+                .article3{
+                    grid-column: 2/3;
+                }
+            }
+            @media (max-width: $medium) {
+                .article{
+                    .img{
+                        height: 350px;
+                    }
+                }
+                .article1{
+                    grid-column: 1/2;
+                }
+                .article2{
+                    grid-column: 1/2;
+                }
+                .article3{
+                    grid-column: 1/2;
+                }
+            }
+        }
+    }
+}
+end section our articles */
+
+/* start section view */
+section#view{
+    color: var(--main_color);
+    margin: 100px 0;
+    .pics{
+        display: grid;
+        grid-template-columns: repeat(auto-fit , minmax(250px , 1fr));
+        .img{
+            height: 300px;
+            background-size: cover !important;
+            background-position: center;
+            @include overlay();
+        }
+        .img1{
+            background: url(images/views/5d9c8fcaca1c6c5012521cf0_bel_occhio_whiteblackback_72_download.jpg);
+        }
+        .img2{
+            background: url(images/views/5d9c8fcaca1c6ca2ba521d0c_circatable_env_72_download_download.jpg);
+        }
+        .img3{
+            background: url(images/views/5d9c8fcaca1c6c66f7521cef_bola-halo-pendant-chandelier-environmental-hallway-lowres_download.jpeg);
+        }
+        .img4{
+            background: url(images/views/5d9c8fcaca1c6ca267521ced_bola-bedroom-ft-v2_download.jpg);
+        }
+        .img5{
+            background: url(images/views/5d9c8fcaca1c6c6253521cf9_bel-occhio-chandelier_r3_download.jpg);
+        }
+        .img6{
+            background: url(images/views/5d9c8fcaca1c6ce60d521cdb_bola-halo-pendant-chandelier-environmental-office-wall-3k_download.jpg);
+        }
+    }
+    .texts{
+        margin-top: 50px;
+        .container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit , minmax(400px , 1fr));
+            div{
+                margin-top: 1rem;
+                h5{
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                }
+                p{
+                    margin-top: .5rem;
+                    opacity: .7;
+                    font-size: 1rem;
+                    color: var(--main_color);
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+/* end section view */
+
+/* start section links */
+section#links{
+    border-top: 1px solid var(--main_color);
+    padding-bottom: 50px;
+    .container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit , minmax(200px , 1fr));
+        h5{
+            font-size: 1rem;
+            opacity: .7;
+            margin-top: 3rem;
+        }
+        ul{
+            color: var(--main_color);
+            list-style: none;
+            margin-top: 3rem;
+            li{
+                margin-top: .5rem;
+                a{
+                    color: var(--main_hover);
+                    text-decoration: none;
+                    &:hover{
+                        color: var(--main_color);
+                    }
+                }
+            }
+        }
+    }
+}
+/* end section links */
+
+/* start footer */
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 30px 5%;
+    border-top: 1px solid var(--main_color);
+    @media (max-width: $medium) {
+    }
+    a{
+        text-align: center;
+        color: var(--main_color);
+        text-decoration: none;
+        &:hover{
+            color: var(--main_hover);
+        }
+    }
+}
+/* end footer */

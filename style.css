@@ -1,0 +1,2389 @@
+@charset "UTF-8";
+/* start global rules */
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap");
+html {
+  font-size: 15px;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Roboto Mono", tahoma;
+}
+
+i, button {
+  cursor: pointer;
+}
+
+body {
+  overflow-x: hidden;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+}
+
+/* start vars */
+:root {
+  --main_color: #18181d;
+  --main_hover: #2a2a31b7;
+  --white: #fff;
+  --white_hover: #eee;
+}
+
+/* end vars */
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+@media (max-width: var(576px)) {
+  .container {
+    width: 95%;
+  }
+}
+
+/* start components */
+/* end components */
+/* end global rules */
+/* start nav */
+nav {
+  position: sticky;
+  top: 0px;
+  border-bottom: 1px solid var(--main_color);
+  background: var(--white);
+  z-index: 1000;
+}
+nav .container {
+  height: 70px;
+  grid-template-columns: 4fr 30fr 2fr;
+  align-items: center;
+  display: grid;
+  gap: 20px;
+}
+nav .container .logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--main_color);
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+nav .container .logo:hover {
+  color: var(--main_hover);
+}
+nav .container ul {
+  background: var(--white);
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  gap: 20px;
+}
+nav .container ul li a {
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-family: "Nunito", tahoma;
+  color: var(--main_color);
+  text-decoration: none;
+  font-style: normal !important;
+  transition: 0.5s ease;
+  -moz-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
+  -ms-transition: 0.5s ease;
+  -webkit-transition: 0.5s ease;
+}
+nav .container ul li a:hover {
+  color: var(--main_hover);
+}
+nav .container .icons {
+  font-size: 1.5rem;
+  display: flex;
+  gap: 20px;
+  color: var(--main_color);
+  align-items: center;
+}
+nav .container .icons #bars {
+  display: none;
+}
+nav .container .icons i {
+  cursor: pointer;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+nav .container .icons i:hover {
+  color: var(--main_hover);
+}
+
+/* end nav */
+@media (max-width: 992px) {
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  nav .container ul {
+    position: absolute;
+    top: -620%;
+    left: 0px;
+    width: 100%;
+    gap: 0px;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+    transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+  }
+  nav .container ul :not(:last-child) {
+    border-bottom: 1px solid var(--main_color);
+  }
+  nav .container ul li {
+    padding-left: 30px;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    padding: 20px;
+  }
+  nav .container ul li:hover {
+    padding-left: 40px;
+  }
+  nav .container .activeNav {
+    top: 70px;
+  }
+  nav .container .icons {
+    display: flex;
+  }
+  nav .container .icons #bars {
+    display: block;
+  }
+}
+/* end nav */
+/* start header */
+#head {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background: url(images/main-bg.jpg);
+  width: 100%;
+  height: calc(100vh - 70px);
+  background-position: center;
+  background-size: cover;
+}
+#head button {
+  background: var(--white);
+  padding: 20px 40px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#head button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+#head button:hover:after {
+  left: 7%;
+}
+#head h1 {
+  margin: 0 20% 30px;
+  font-weight: 300;
+  color: var(--white);
+  text-align: center;
+  font-size: 4rem;
+}
+
+@media (max-width: 992px) {
+  #head h1 {
+    margin: 0 10% 30px;
+    font-size: 3rem;
+  }
+  #head button {
+    width: 60%;
+  }
+}
+@media (max-width: 768px) {
+  #head h1 {
+    margin: 0 0% 30px;
+    font-size: 3rem;
+  }
+}
+@media (max-width: 768px) {
+  #head h1 {
+    margin: 0 0% 30px;
+    font-size: 2.5rem;
+  }
+  #head button {
+    width: 90%;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 0.9rem;
+    width: 95%;
+  }
+}
+/* end header */
+/* start aside */
+aside {
+  display: none;
+  position: fixed;
+  z-index: 1000000000000;
+  top: 0;
+  opacity: 0;
+  right: -400px;
+  width: 400px;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  background: var(--main_color);
+  height: 100vh;
+  color: var(--white);
+  text-transform: uppercase;
+}
+@media (max-width: 400px) {
+  aside {
+    max-width: 100%;
+  }
+}
+aside header {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10%;
+  align-items: center;
+}
+aside section {
+  text-align: center;
+  background: var(--main_hover);
+  padding: 1rem 1rem 2rem;
+}
+aside section button {
+  width: 100%;
+  margin: 1rem auto 0;
+  background: var(--white);
+  padding: 15px 30px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+aside section button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+aside section button:hover:after {
+  left: 7%;
+}
+
+.activeAside {
+  opacity: 1;
+  right: 0;
+}
+
+/* end aside */
+/* start section brands */
+section#brands .container {
+  padding: 50px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
+  align-items: center;
+}
+section#brands .container img {
+  width: 103px;
+  height: 103px;
+  opacity: 0.3;
+  margin: 0 auto;
+}
+
+/* end section brands */
+/* start section lights */
+section#lights {
+  color: var(--main_color);
+}
+section#lights .container .h2 {
+  width: 100%;
+}
+section#lights .container .h2 h2 {
+  width: 30%;
+  font-size: 2rem;
+  font-weight: 200;
+  margin-bottom: 2rem;
+}
+section#lights .container .imgs {
+  display: flex;
+  gap: 40px;
+}
+section#lights .container .imgs .img1 {
+  background-image: url(images/bola-disc-.jpg);
+  width: 80%;
+  height: 800px;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 10px 10px;
+  background-position: center;
+}
+section#lights .container .imgs .img1:hover button {
+  opacity: 1;
+  transform: translateY(0px);
+}
+section#lights .container .imgs .img1:hover .overlay {
+  opacity: 0.3;
+}
+section#lights .container .imgs .img1 button {
+  background: var(--white);
+  padding: 25px 30px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(5px);
+  width: 100%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  margin: 0px;
+}
+section#lights .container .imgs .img1 button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#lights .container .imgs .img1 button:hover:after {
+  left: 7%;
+}
+section#lights .container .imgs .img1 .overlay {
+  width: 100%;
+  height: 100%;
+  background: var(--main_color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+section#lights .container .imgs .img2 {
+  background-image: url(images/bola-halo.jpg);
+  width: 80%;
+  height: 600px;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 10px 10px;
+  background-position: center;
+}
+section#lights .container .imgs .img2:hover button {
+  opacity: 1;
+  transform: translateY(0px);
+}
+section#lights .container .imgs .img2:hover .overlay {
+  opacity: 0.3;
+}
+section#lights .container .imgs .img2 button {
+  background: var(--white);
+  padding: 25px 30px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(5px);
+  width: 100%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  margin: 0px;
+}
+section#lights .container .imgs .img2 button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#lights .container .imgs .img2 button:hover:after {
+  left: 7%;
+}
+section#lights .container .imgs .img2 .overlay {
+  width: 100%;
+  height: 100%;
+  background: var(--main_color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+section#lights .container .text {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+section#lights .container .text .h3 {
+  width: 50%;
+}
+section#lights .container .text .h3 h3 {
+  font-weight: 300;
+  font-size: 1.7rem;
+}
+section#lights .container .text p {
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 25px;
+  opacity: 0.5;
+  font-family: tahoma;
+  width: 80%;
+  margin-bottom: 3rem;
+}
+section#lights .container .text button {
+  grid-column: 2/3;
+  background: var(--white);
+  padding: 30px 0px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--main_color);
+  justify-content: space-around;
+}
+section#lights .container .text button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#lights .container .text button:hover:after {
+  left: 7%;
+}
+section#lights .container .text button:hover {
+  border: 1px solid var(--main_hover);
+}
+
+@media (max-width: 992px) {
+  section#lights .container .h2 h2 {
+    width: 100%;
+    text-align: center;
+  }
+  section#lights .container .imgs {
+    flex-direction: column;
+  }
+  section#lights .container .imgs .img1 {
+    background-image: url(images/bola-disc-.jpg);
+    width: 100%;
+    height: 700px;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 10px 10px;
+    background-position: center;
+  }
+  section#lights .container .imgs .img1:hover button {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  section#lights .container .imgs .img1:hover .overlay {
+    opacity: 0.3;
+  }
+  section#lights .container .imgs .img1 button {
+    background: var(--white);
+    padding: 25px 30px;
+    color: var(--main_color);
+    border: none;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(5px);
+    width: 100%;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    margin: 0px;
+  }
+  section#lights .container .imgs .img1 button::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "";
+    width: 20px;
+    height: 9px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 10px;
+    left: 0%;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    font-size: 1.5rem;
+  }
+  section#lights .container .imgs .img1 button:hover:after {
+    left: 7%;
+  }
+  section#lights .container .imgs .img1 .overlay {
+    width: 100%;
+    height: 100%;
+    background: var(--main_color);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+  }
+  section#lights .container .imgs .img2 {
+    background-image: url(images/bola-halo.jpg);
+    width: 80%;
+    height: 500px;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 10px 10px;
+    background-position: center;
+  }
+  section#lights .container .imgs .img2:hover button {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  section#lights .container .imgs .img2:hover .overlay {
+    opacity: 0.3;
+  }
+  section#lights .container .imgs .img2 button {
+    background: var(--white);
+    padding: 25px 30px;
+    color: var(--main_color);
+    border: none;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(5px);
+    width: 100%;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    margin: 0px;
+  }
+  section#lights .container .imgs .img2 button::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "";
+    width: 20px;
+    height: 9px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 10px;
+    left: 0%;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    font-size: 1.5rem;
+  }
+  section#lights .container .imgs .img2 button:hover:after {
+    left: 7%;
+  }
+  section#lights .container .imgs .img2 .overlay {
+    width: 100%;
+    height: 100%;
+    background: var(--main_color);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+  }
+  section#lights .container .text {
+    flex-direction: column;
+  }
+  section#lights .container .text .h3 {
+    width: 100%;
+  }
+  section#lights .container .text p {
+    width: 100%;
+  }
+  section#lights .container .text button {
+    grid-column: 1/3;
+  }
+}
+@media (max-width: 768px) {
+  section#lights .container .h2 h2 {
+    font-size: 1.5rem;
+  }
+  section#lights .container .imgs .img1 {
+    background-image: url(images/bola-disc-.jpg);
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 10px 10px;
+    background-position: center;
+  }
+  section#lights .container .imgs .img1:hover button {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  section#lights .container .imgs .img1:hover .overlay {
+    opacity: 0.3;
+  }
+  section#lights .container .imgs .img1 button {
+    background: var(--white);
+    padding: 25px 30px;
+    color: var(--main_color);
+    border: none;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(5px);
+    width: 100%;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    margin: 0px;
+  }
+  section#lights .container .imgs .img1 button::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "";
+    width: 20px;
+    height: 9px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 10px;
+    left: 0%;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    font-size: 1.5rem;
+  }
+  section#lights .container .imgs .img1 button:hover:after {
+    left: 7%;
+  }
+  section#lights .container .imgs .img1 .overlay {
+    width: 100%;
+    height: 100%;
+    background: var(--main_color);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+  }
+  section#lights .container .imgs .img2 {
+    background-image: url(images/bola-halo.jpg);
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 10px 10px;
+    background-position: center;
+  }
+  section#lights .container .imgs .img2:hover button {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  section#lights .container .imgs .img2:hover .overlay {
+    opacity: 0.3;
+  }
+  section#lights .container .imgs .img2 button {
+    background: var(--white);
+    padding: 25px 30px;
+    color: var(--main_color);
+    border: none;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(5px);
+    width: 100%;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    margin: 0px;
+  }
+  section#lights .container .imgs .img2 button::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "";
+    width: 20px;
+    height: 9px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 10px;
+    left: 0%;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    font-size: 1.5rem;
+  }
+  section#lights .container .imgs .img2 button:hover:after {
+    left: 7%;
+  }
+  section#lights .container .imgs .img2 .overlay {
+    width: 100%;
+    height: 100%;
+    background: var(--main_color);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+  }
+  section#lights .container .text {
+    gap: 40px;
+  }
+  section#lights .container .text .h3 {
+    width: 100%;
+    grid-column: 1/3;
+  }
+  section#lights .container .text p {
+    width: 100%;
+    grid-column: 1/3;
+    margin: 0;
+  }
+  section#lights .container .text button {
+    grid-column: 1/3;
+  }
+}
+@media (max-width: 576px) {
+  section#lights .container .imgs .img1 {
+    background-image: url(images/bola-disc-.jpg);
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 10px 10px;
+    background-position: center;
+  }
+  section#lights .container .imgs .img1:hover button {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  section#lights .container .imgs .img1:hover .overlay {
+    opacity: 0.3;
+  }
+  section#lights .container .imgs .img1 button {
+    background: var(--white);
+    padding: 25px 30px;
+    color: var(--main_color);
+    border: none;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(5px);
+    width: 100%;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    margin: 0px;
+  }
+  section#lights .container .imgs .img1 button::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "";
+    width: 20px;
+    height: 9px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 10px;
+    left: 0%;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    font-size: 1.5rem;
+  }
+  section#lights .container .imgs .img1 button:hover:after {
+    left: 7%;
+  }
+  section#lights .container .imgs .img1 .overlay {
+    width: 100%;
+    height: 100%;
+    background: var(--main_color);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+  }
+}
+/* end section lights */
+/* start section products */
+section#products {
+  color: var(--main_color);
+  padding: 50px 0;
+}
+section#products .container header h6 {
+  font-family: "Roboto", Tahoma;
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+section#products .container header h3 {
+  font-size: 2rem;
+  font-family: "Roboto", Tahoma;
+  font-weight: 300;
+  margin-bottom: 3rem;
+}
+section#products .container .products-images {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+@media (max-width: 330px) {
+  section#products .container .products-images {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+section#products .container .products-images .product .img .picture {
+  width: 100%;
+}
+section#products .container .products-images .product .text {
+  text-transform: uppercase;
+  font-family: "Roboto", tahoma;
+  color: var(--main_color);
+}
+section#products .container .products-images .product .text:hover {
+  color: var(--main_hover);
+}
+section#products .container .products-images .product .text a, section#products .container .products-images .product .text code {
+  text-decoration: none;
+  display: block;
+  margin-top: 2rem;
+  color: var(--main_color);
+}
+section#products .container .products-images .product .text a:hover, section#products .container .products-images .product .text code:hover {
+  color: var(--main_hover);
+}
+section#products .container .products-images .product .text code {
+  font-size: 1.5rem;
+}
+section#products .container .products-images .product .text code::before {
+  content: "$";
+  margin-right: 5px;
+}
+section#products .container .products-images .product .text code::after {
+  content: "USD";
+  margin-left: 5px;
+}
+section#products .container .products-images .img1 {
+  background-image: url(images/products/first.jpeg);
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 10px 10px;
+  background-position: center;
+}
+section#products .container .products-images .img1:hover button {
+  opacity: 1;
+  transform: translateY(0px);
+}
+section#products .container .products-images .img1:hover .overlay {
+  opacity: 0.3;
+}
+section#products .container .products-images .img1 button {
+  background: var(--white);
+  padding: 25px 30px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(5px);
+  width: 100%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  margin: 0px;
+}
+section#products .container .products-images .img1 button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#products .container .products-images .img1 button:hover:after {
+  left: 7%;
+}
+section#products .container .products-images .img1 .overlay {
+  width: 100%;
+  height: 100%;
+  background: var(--main_color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+section#products .container .products-images .img2 {
+  background-image: url(images/products/second.jpeg);
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 10px 10px;
+  background-position: center;
+}
+section#products .container .products-images .img2:hover button {
+  opacity: 1;
+  transform: translateY(0px);
+}
+section#products .container .products-images .img2:hover .overlay {
+  opacity: 0.3;
+}
+section#products .container .products-images .img2 button {
+  background: var(--white);
+  padding: 25px 30px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(5px);
+  width: 100%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  margin: 0px;
+}
+section#products .container .products-images .img2 button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#products .container .products-images .img2 button:hover:after {
+  left: 7%;
+}
+section#products .container .products-images .img2 .overlay {
+  width: 100%;
+  height: 100%;
+  background: var(--main_color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+section#products .container .products-images .img3 {
+  background-image: url(images/products/third.jpeg);
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 10px 10px;
+  background-position: center;
+  position: relative;
+}
+section#products .container .products-images .img3:hover button {
+  opacity: 1;
+  transform: translateY(0px);
+}
+section#products .container .products-images .img3:hover .overlay {
+  opacity: 0.3;
+}
+section#products .container .products-images .img3 button {
+  background: var(--white);
+  padding: 25px 30px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(5px);
+  width: 100%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  margin: 0px;
+}
+section#products .container .products-images .img3 button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#products .container .products-images .img3 button:hover:after {
+  left: 7%;
+}
+section#products .container .products-images .img3 .overlay {
+  width: 100%;
+  height: 100%;
+  background: var(--main_color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+section#products .container .products-images .img3 div.note {
+  text-transform: uppercase;
+  padding: 15px 20px;
+  background: var(--white);
+  color: var(--main_color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+section#products .container .products-images .img4 {
+  background-image: url(images/products/fourth.jpeg);
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 10px 10px;
+  background-position: center;
+}
+section#products .container .products-images .img4:hover button {
+  opacity: 1;
+  transform: translateY(0px);
+}
+section#products .container .products-images .img4:hover .overlay {
+  opacity: 0.3;
+}
+section#products .container .products-images .img4 button {
+  background: var(--white);
+  padding: 25px 30px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(5px);
+  width: 100%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  margin: 0px;
+}
+section#products .container .products-images .img4 button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#products .container .products-images .img4 button:hover:after {
+  left: 7%;
+}
+section#products .container .products-images .img4 .overlay {
+  width: 100%;
+  height: 100%;
+  background: var(--main_color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+section#products .container .products-images .img5 {
+  position: relative;
+  background-image: url(images/products/fifth.jpg);
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 10px 10px;
+  background-position: center;
+}
+section#products .container .products-images .img5 div.note {
+  text-transform: uppercase;
+  padding: 15px 20px;
+  background: var(--main_color);
+  color: var(--white);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+section#products .container .products-images .img5:hover button {
+  opacity: 1;
+  transform: translateY(0px);
+}
+section#products .container .products-images .img5:hover .overlay {
+  opacity: 0.3;
+}
+section#products .container .products-images .img5 button {
+  background: var(--white);
+  padding: 25px 30px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(5px);
+  width: 100%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  margin: 0px;
+}
+section#products .container .products-images .img5 button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#products .container .products-images .img5 button:hover:after {
+  left: 7%;
+}
+section#products .container .products-images .img5 .overlay {
+  width: 100%;
+  height: 100%;
+  background: var(--main_color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+section#products .container .products-images .img6 {
+  background-image: url(images/products/sixth.jpg);
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 10px 10px;
+  background-position: center;
+}
+section#products .container .products-images .img6:hover button {
+  opacity: 1;
+  transform: translateY(0px);
+}
+section#products .container .products-images .img6:hover .overlay {
+  opacity: 0.3;
+}
+section#products .container .products-images .img6 button {
+  background: var(--white);
+  padding: 25px 30px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(5px);
+  width: 100%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  margin: 0px;
+}
+section#products .container .products-images .img6 button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#products .container .products-images .img6 button:hover:after {
+  left: 7%;
+}
+section#products .container .products-images .img6 .overlay {
+  width: 100%;
+  height: 100%;
+  background: var(--main_color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+section#products .container .products-images .img7 {
+  background-image: url(images/products/seventh.jpg);
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 10px 10px;
+  background-position: center;
+}
+section#products .container .products-images .img7:hover button {
+  opacity: 1;
+  transform: translateY(0px);
+}
+section#products .container .products-images .img7:hover .overlay {
+  opacity: 0.3;
+}
+section#products .container .products-images .img7 button {
+  background: var(--white);
+  padding: 25px 30px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(5px);
+  width: 100%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  margin: 0px;
+}
+section#products .container .products-images .img7 button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#products .container .products-images .img7 button:hover:after {
+  left: 7%;
+}
+section#products .container .products-images .img7 .overlay {
+  width: 100%;
+  height: 100%;
+  background: var(--main_color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+section#products .container .products-images .img8 {
+  background-image: url(images/products/eighth.jpg);
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 10px 10px;
+  background-position: center;
+}
+section#products .container .products-images .img8:hover button {
+  opacity: 1;
+  transform: translateY(0px);
+}
+section#products .container .products-images .img8:hover .overlay {
+  opacity: 0.3;
+}
+section#products .container .products-images .img8 button {
+  background: var(--white);
+  padding: 25px 30px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(5px);
+  width: 100%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  margin: 0px;
+}
+section#products .container .products-images .img8 button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#products .container .products-images .img8 button:hover:after {
+  left: 7%;
+}
+section#products .container .products-images .img8 .overlay {
+  width: 100%;
+  height: 100%;
+  background: var(--main_color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+section#products .container .products-images .img9 {
+  position: relative;
+  background-image: url(images/products/fifth.jpg);
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 10px 10px;
+  background-position: center;
+}
+section#products .container .products-images .img9 div.note {
+  text-transform: uppercase;
+  padding: 15px 20px;
+  background: var(--main_color);
+  color: var(--white);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+section#products .container .products-images .img9:hover button {
+  opacity: 1;
+  transform: translateY(0px);
+}
+section#products .container .products-images .img9:hover .overlay {
+  opacity: 0.3;
+}
+section#products .container .products-images .img9 button {
+  background: var(--white);
+  padding: 25px 30px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(5px);
+  width: 100%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  margin: 0px;
+}
+section#products .container .products-images .img9 button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#products .container .products-images .img9 button:hover:after {
+  left: 7%;
+}
+section#products .container .products-images .img9 .overlay {
+  width: 100%;
+  height: 100%;
+  background: var(--main_color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+section#products .container .products-images .img10 {
+  background-image: url(images/products/first.jpeg);
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 10px 10px;
+  background-position: center;
+}
+section#products .container .products-images .img10:hover button {
+  opacity: 1;
+  transform: translateY(0px);
+}
+section#products .container .products-images .img10:hover .overlay {
+  opacity: 0.3;
+}
+section#products .container .products-images .img10 button {
+  background: var(--white);
+  padding: 25px 30px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(5px);
+  width: 100%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  margin: 0px;
+}
+section#products .container .products-images .img10 button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#products .container .products-images .img10 button:hover:after {
+  left: 7%;
+}
+section#products .container .products-images .img10 .overlay {
+  width: 100%;
+  height: 100%;
+  background: var(--main_color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+section#products .container .products-images .img11 {
+  background-image: url(images/products/seventh.jpg);
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 10px 10px;
+  background-position: center;
+}
+section#products .container .products-images .img11:hover button {
+  opacity: 1;
+  transform: translateY(0px);
+}
+section#products .container .products-images .img11:hover .overlay {
+  opacity: 0.3;
+}
+section#products .container .products-images .img11 button {
+  background: var(--white);
+  padding: 25px 30px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(5px);
+  width: 100%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  margin: 0px;
+}
+section#products .container .products-images .img11 button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#products .container .products-images .img11 button:hover:after {
+  left: 7%;
+}
+section#products .container .products-images .img11 .overlay {
+  width: 100%;
+  height: 100%;
+  background: var(--main_color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+section#products .container .products-images .img12 {
+  position: relative;
+  background-image: url(images/products/third.jpeg);
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 10px 10px;
+  background-position: center;
+}
+section#products .container .products-images .img12 div.note {
+  text-transform: uppercase;
+  padding: 15px 20px;
+  background: var(--white);
+  color: var(--main_color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+section#products .container .products-images .img12:hover button {
+  opacity: 1;
+  transform: translateY(0px);
+}
+section#products .container .products-images .img12:hover .overlay {
+  opacity: 0.3;
+}
+section#products .container .products-images .img12 button {
+  background: var(--white);
+  padding: 25px 30px;
+  color: var(--main_color);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(5px);
+  width: 100%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  margin: 0px;
+}
+section#products .container .products-images .img12 button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#products .container .products-images .img12 button:hover:after {
+  left: 7%;
+}
+section#products .container .products-images .img12 .overlay {
+  width: 100%;
+  height: 100%;
+  background: var(--main_color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+section#products button {
+  background: var(--main_color);
+  padding: 20px 60px;
+  color: var(--white);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto;
+  border: 1px solid var(--white);
+}
+section#products button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#products button:hover:after {
+  left: 7%;
+}
+@media (max-width: 576px) {
+  section#products button {
+    background: var(--white);
+    padding: 20px 40px;
+    color: var(--main_color);
+    border: none;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--white);
+  }
+  section#products button::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "";
+    width: 20px;
+    height: 9px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 10px;
+    left: 0%;
+    transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    font-size: 1.5rem;
+  }
+  section#products button:hover:after {
+    left: 7%;
+  }
+}
+
+/* end section products */
+/* start section attachementBG  */
+section#attachementBG {
+  margin: 50px 0;
+  background: url(images/attachementBG.jpg) center;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 360px;
+}
+
+/* end section attachementBG */
+/* start section what-they-say */
+section#what {
+  color: var(--main_color);
+  background: var(--white_hover);
+  padding: 50px 0px;
+  width: 90%;
+}
+section#what .container {
+  margin-right: 0px;
+  display: flex;
+  align-items: center;
+}
+section#what .container .left {
+  width: 50%;
+  z-index: 1;
+}
+section#what .container .left div {
+  text-transform: uppercase;
+  background: var(--white);
+  width: max-content;
+  padding: 10px 20px;
+  border: var(--main_hover) solid 1px;
+  border-radius: 3px;
+  font-family: "Roboto", tahoma;
+  margin-bottom: 2rem;
+}
+section#what .container .left q {
+  font-size: 2.5rem;
+  font-weight: 200;
+}
+section#what .container .left button {
+  background: var(--main_color);
+  padding: 20px 60px;
+  color: var(--white);
+  border: none;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+section#what .container .left button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "";
+  width: 20px;
+  height: 9px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 10px;
+  left: 0%;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  font-size: 1.5rem;
+}
+section#what .container .left button:hover:after {
+  left: 7%;
+}
+section#what .container .right {
+  position: relative;
+  z-index: 0;
+  right: 10%;
+  background: url(images/solis_fabric.jpg);
+  width: 60%;
+  height: 580px;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 992px) {
+  section#what {
+    width: 100%;
+  }
+  section#what .container {
+    margin: 0 auto;
+    flex-direction: column-reverse;
+  }
+  section#what .container .right {
+    width: 100%;
+    position: static;
+  }
+}
+@media (max-width: 992px) and (max-width: 768px) {
+  section#what .container .right {
+    height: 400px;
+  }
+}
+@media (max-width: 992px) {
+  section#what .container .left {
+    margin-top: 2rem;
+    width: 100%;
+  }
+}
+@media (max-width: 992px) and (max-width: 768px) {
+  section#what .container .left q {
+    text-align: center;
+    font-size: 2rem;
+    width: 100%;
+  }
+}
+@media (max-width: 992px) {
+  section#what .container .left button {
+    margin: 2rem auto 0;
+    padding: 30px 60px;
+  }
+}
+@media (max-width: 992px) and (max-width: 768px) {
+  section#what .container .left button {
+    padding: 15px 30px;
+  }
+}
+/* end section what-they-say */
+/* star section our articles
+section#our{
+    margin: 50px 0px;
+    color: var(--main_color);
+    .container{
+        header{
+            margin-bottom: 3rem;
+            h6{
+                font-family: "Roboto", Tahoma;
+                font-weight: 400;
+                font-size: 1rem;
+                opacity: 0.7;
+            }
+            h3{
+                font-weight: 400;
+                width: 50%;
+                @media (max-width: $large) {
+                    width: 100%;
+                    text-align: center;
+                }
+                font-size: 2rem;
+            }
+        }
+        .articles{
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            @media (max-width: $large) {
+                grid-template-columns: repeat(2 , 1fr);
+            }
+            @media (max-width: $medium) {
+                grid-template-columns: repeat(1 , 1fr);
+            }
+            height: 400px;
+            gap: 30px;
+            .article{
+                .pic{
+                    .img1{
+                        background: url(images/bola-bedroom.jpg);
+                    }
+                    .img2{
+                        background: url(images/bola-office.jpg);
+                    }
+                    .img3{
+                        background: url(images/lana-mini-livingroom.jpg);
+                    }
+                    .img{
+                        @include overlay();
+                        height: 400px;
+                    }
+                }
+                .text{
+                    h3{
+                        margin-top: 1rem;
+                        a{
+                            color: var(--main_color);
+                            &:hover{
+                                color: var(--main_hover);
+                            }
+                            text-decoration: none;
+                        }
+                    }
+                    > a{
+                        text-decoration: none;
+                        @include button();
+                        width: max-content;
+                        padding: 0px;
+                        margin-top: 1rem;
+                    }
+                }
+            }
+            @media (max-width: $large) {
+                .article1{
+                    grid-column: 1/3;
+                }
+                .article2{
+                    grid-column: 1/2;
+                }
+                .article3{
+                    grid-column: 2/3;
+                }
+            }
+            @media (max-width: $medium) {
+                .article{
+                    .img{
+                        height: 350px;
+                    }
+                }
+                .article1{
+                    grid-column: 1/2;
+                }
+                .article2{
+                    grid-column: 1/2;
+                }
+                .article3{
+                    grid-column: 1/2;
+                }
+            }
+        }
+    }
+}
+end section our articles */
+/* start section view */
+section#view {
+  color: var(--main_color);
+  margin: 100px 0;
+}
+section#view .pics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+section#view .pics .img {
+  height: 300px;
+  background-size: cover !important;
+  background-position: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+}
+section#view .pics .img .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--white_hover);
+  opacity: 0;
+}
+section#view .pics .img:hover {
+  opacity: 0.7;
+}
+section#view .pics .img .note {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--white);
+  color: var(--main_color);
+  padding: 10px 15px;
+}
+section#view .pics .img1 {
+  background: url(images/views/5d9c8fcaca1c6c5012521cf0_bel_occhio_whiteblackback_72_download.jpg);
+}
+section#view .pics .img2 {
+  background: url(images/views/5d9c8fcaca1c6ca2ba521d0c_circatable_env_72_download_download.jpg);
+}
+section#view .pics .img3 {
+  background: url(images/views/5d9c8fcaca1c6c66f7521cef_bola-halo-pendant-chandelier-environmental-hallway-lowres_download.jpeg);
+}
+section#view .pics .img4 {
+  background: url(images/views/5d9c8fcaca1c6ca267521ced_bola-bedroom-ft-v2_download.jpg);
+}
+section#view .pics .img5 {
+  background: url(images/views/5d9c8fcaca1c6c6253521cf9_bel-occhio-chandelier_r3_download.jpg);
+}
+section#view .pics .img6 {
+  background: url(images/views/5d9c8fcaca1c6ce60d521cdb_bola-halo-pendant-chandelier-environmental-office-wall-3k_download.jpg);
+}
+section#view .texts {
+  margin-top: 50px;
+}
+section#view .texts .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+section#view .texts .container div {
+  margin-top: 1rem;
+}
+section#view .texts .container div h5 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+section#view .texts .container div p {
+  margin-top: 0.5rem;
+  opacity: 0.7;
+  font-size: 1rem;
+  color: var(--main_color);
+  text-decoration: none;
+}
+
+/* end section view */
+/* start section links */
+section#links {
+  border-top: 1px solid var(--main_color);
+  padding-bottom: 50px;
+}
+section#links .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+section#links .container h5 {
+  font-size: 1rem;
+  opacity: 0.7;
+  margin-top: 3rem;
+}
+section#links .container ul {
+  color: var(--main_color);
+  list-style: none;
+  margin-top: 3rem;
+}
+section#links .container ul li {
+  margin-top: 0.5rem;
+}
+section#links .container ul li a {
+  color: var(--main_hover);
+  text-decoration: none;
+}
+section#links .container ul li a:hover {
+  color: var(--main_color);
+}
+
+/* end section links */
+/* start footer */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 30px 5%;
+  border-top: 1px solid var(--main_color);
+}
+footer a {
+  text-align: center;
+  color: var(--main_color);
+  text-decoration: none;
+}
+footer a:hover {
+  color: var(--main_hover);
+}
+
+/* end footer */
+
+/*# sourceMappingURL=style.css.map */
